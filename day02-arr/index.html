@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</body>
+    <script>
+        let lis=document.querySelectorAll("li")
+        // console.log(lis);
+        // let list=Array.from(lis,function(item){
+        //     console.log(item);
+        //     return item.innerHTML
+        // })
+        // console.log(Array.isArray(list));
+        // console.log(list);
+
+        // var str="abcd"
+        // console.log(Array.from(str));
+
+        //  var json={
+        //      0:"lixianli",
+        //      1:"zhangxu",
+        //     //  length:2
+        //  }    
+        //  console.log(Array.from(json));
+            
+        // var json={
+        //     name:"lixianli",
+        //     age:"18",
+        //     length:2
+        // }
+        // console.log(Array.from(json));
+        // console.log(Array.prototype.slice.call(lis));
+    //     let arr = ['a','b','c','d'];
+    //   console.log( arr.copyWithin(0,2,4) );
+    //     //['a','c','d','d']
+
+//     let arr = [
+//     {
+//         name:'lili',
+//         age:18
+//     },
+//     {
+//         name:'lixd',
+//         age:19
+//     }
+// ];
+
+// let arr1=arr.findIndex(function(item){
+//     return item.name === 'lili'
+// })
+//    console.log(arr1);
+//    let arr = ['orange','banner','applp'];
+
+//   console.log( arr.includes('orange'));
+//   ; //true
+
+// let arr=[1,2,3]
+// console.log(arr.fill(7,1,2));
+
+let arr = [1,2,[[3,4],5]];
+
+ console.log( arr.flat(2) );
+ //[1,2,3,4,5]
+    </script>
+</html>
