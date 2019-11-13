@@ -1,4 +1,4 @@
-//数据库连接
+// //数据库连接
 const mysql = require("mysql")
 
 const connection = mysql.createConnection({
@@ -16,5 +16,6 @@ connection.connect((error)=>{
         console.log("数据库连接成功");
     }
 })
-
 module.exports = connection
+
+//数据库连接

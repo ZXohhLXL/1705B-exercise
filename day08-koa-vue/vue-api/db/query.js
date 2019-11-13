@@ -1,6 +1,6 @@
-const connect =require("./index")
+const connect = require("./index") 
 
-const query=(sql,params=[])=>{
+const query = (sql,params=[])=>{
     return new Promise((resolve,reject)=>{
         connect.query(sql,params,(error,data)=>{
             if(error){
@@ -11,3 +11,4 @@ const query=(sql,params=[])=>{
         })
     })
 }
+module.exports = query
