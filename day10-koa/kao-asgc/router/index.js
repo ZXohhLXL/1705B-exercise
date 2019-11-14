@@ -1,12 +1,18 @@
 const router = require("koa-router")()
 const query = require("../db/query.js")
 //所有项
-router.get("/list",async (ctx)=>{
+router.get("/api/list",async (ctx)=>{
+    let {pagenum=1,pagesize=3}=ctx.query
+    let startIndex=(pagenum-1)*pagesize
   try{
-  let data=  await query("select * from banner")
+  let data= await query(`select * from banner limit ${startIndex},${pagesize}`)
+  let total = await query("select count(*) from banner")
+
+  
     ctx.body={
         code:1,
-        msg:data
+        msg:data,
+        total:total.data[0]["count(*)"]
     }
   }catch(e){
         ctx.body={
@@ -17,7 +23,7 @@ router.get("/list",async (ctx)=>{
 })
 
 //添加
-router.get("/add",async ctx=>{
+router.get("/api/add",async ctx=>{
     let {bz,type,pai} = ctx.query
     //参数校验->查询此排序是否存在
     if(bz && type){
@@ -53,7 +59,7 @@ router.get("/add",async ctx=>{
 })
 
 //删除
-router.post("/del",async ctx=>{
+router.post("/api/del",async ctx=>{
     //删除逻辑  传入id
     let {id} = ctx.request.body
     //参数校验
@@ -79,7 +85,7 @@ router.post("/del",async ctx=>{
 })
 
 
-router.get("/edit",async ctx=>{
+router.get("/api/edit",async ctx=>{
     //修改逻辑：根据传入的id进行修改
     let {bz,type,pai,id} = ctx.query
     if(id&&bz&&type&&pai){
@@ -104,10 +110,10 @@ router.get("/edit",async ctx=>{
 })
 
 //模糊搜索
-router.get("/server",async ctx=>{
+router.get("/api/server",async ctx=>{
     //模糊搜索  根据传过来的值进行搜索
     let {key} = ctx.query
-
+      
     try{
       let data= await query(`select * from banner where type like '%${key}%'`)
       console.log(data);
