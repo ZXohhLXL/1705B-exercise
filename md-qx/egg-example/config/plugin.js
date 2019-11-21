@@ -6,8 +6,8 @@ module.exports = {
   // static: {
   //   enable: true,
   // }
-    mysql:{
-      enable:true,
-      package:"egg-mysql"
-    }
+  mysql:{
+    enable:true,
+    package:"egg-mysql"
+  }
 };
